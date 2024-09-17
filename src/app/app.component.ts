@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { WebsocketService } from './service/websocket.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrls: ['./app.component.css'],  // Corrección aquí
 })
 export class AppComponent {
   public isOnline: boolean = false;
   title = 'ClienteSockPrueba2';
+  
   constructor(public webSocket: WebsocketService) {}
 }
