@@ -10,5 +10,9 @@ export class AppComponent {
   public isOnline: boolean = false;
   title = 'ClienteSockPrueba2';
   
-  constructor(public webSocket: WebsocketService) {}
+  constructor(public webSocket: WebsocketService) {
+    this.webSocket.getStatus().subscribe(status => {
+      this.isOnline = status;
+    });
+  }
 }

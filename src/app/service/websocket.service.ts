@@ -1,30 +1,37 @@
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
 import { BehaviorSubject } from 'rxjs';
+
 @Injectable({
   providedIn: 'root',
 })
 export class WebsocketService {
   private socketStatus = new BehaviorSubject<boolean>(false);
-  constructor(public Socket: Socket) {
+
+  constructor(private socket: Socket) {
     this.checkStatus();
   }
-  checkStatus() {
-    this.Socket.on('connect', () => {
+
+  private checkStatus() {
+    this.socket.on('connect', () => {
       console.log('Cliente conectado');
       this.socketStatus.next(true);
     });
-    this.Socket.on('disconnect', () => {
-      console.log('Cliente conectado');
+
+    this.socket.on('disconnect', () => {
+      console.log('Cliente desconectado');
       this.socketStatus.next(false);
     });
   }
-  emit(evento: string, payload?: any, callback?: Function) {
-    this.Socket.emit(evento, payload, callback);
+
+  emit(event: string, payload?: any, callback?: Function) {
+    this.socket.emit(event, payload, callback);
   }
-  listen(evento: string) {
-    return this.Socket.fromEvent(evento);
+
+  listen(event: string) {
+    return this.socket.fromEvent(event);
   }
+
   getStatus() {
     return this.socketStatus.asObservable();
   }

@@ -8,9 +8,17 @@ import { TopComponent } from './components/top/top.component';
 import { ChatComponent } from './components/chats/chats.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
+
+// Configuración de Socket.IO
 const config: SocketIoConfig = { url: environment.wsSockets, options: {} };
+
 @NgModule({
-  declarations: [AppComponent, TopComponent, ChatComponent, LoginComponent],
+  declarations: [
+    AppComponent,
+    TopComponent,
+    ChatComponent,
+    LoginComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -20,4 +28,4 @@ const config: SocketIoConfig = { url: environment.wsSockets, options: {} };
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
