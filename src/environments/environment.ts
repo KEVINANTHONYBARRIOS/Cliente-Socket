@@ -1,3 +1,3 @@
 export const environment = {
-     wsSockets:'http://localhost:4500',};
+     wsSockets:'https://server-socket-production-3658.up.railway.app',};
 
