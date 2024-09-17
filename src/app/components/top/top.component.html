@@ -1,0 +1,10 @@
+<header
+  class="bg-primary text-white p-3 d-flex justify-content-between align-items-center"
+>
+  <h1 class="m-0">Mi Aplicación</h1>
+  <!-- Estado Online y Offline -->
+  <div class="d-flex gap-2">
+    <span *ngIf="isOnline" class="badge bg-success">Online</span>
+    <span *ngIf="!isOnline" class="badge bg-danger">Offline</span>
+  </div>
+</header>

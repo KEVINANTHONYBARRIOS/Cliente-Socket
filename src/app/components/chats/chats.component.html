@@ -1,0 +1,27 @@
+<div class="container mt-3">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1 class="m-0">Mensajes</h1>
+    <span class="badge bg-info text-dark p-2 fs-5">{{ nombreUsuario }}</span>
+  </div>
+  <hr />
+  <div
+    id="chat-mensajes"
+    class="border rounded p-3 mb-3"
+    style="height: 300px; overflow-y: auto"
+  >
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let msg of mensajes">
+        <strong>{{ msg.de }}:</strong> {{ msg.cuerpo }}
+      </li>
+    </ul>
+  </div>
+  <div class="input-group">
+    <input
+      [(ngModel)]="texto"
+      type="text"
+      class="form-control"
+      placeholder="Escribe un mensaje..."
+    />
+    <button class="btn btn-primary" (click)="enviar()">Enviar</button>
+  </div>
+</div>

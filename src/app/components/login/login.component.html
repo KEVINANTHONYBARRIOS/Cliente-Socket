@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  <h2>Ingrese su nombre</h2>
+  <form (ngSubmit)="entrar()">
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input
+        [(ngModel)]="nombre"
+        name="nombre"
+        type="text"
+        class="form-control"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Entrar</button>
+  </form>
+</div>
